@@ -1,0 +1,4 @@
+Color,U_min,U_max,Workflow,Onscreen_Message
+GREEN,0.0,0.2,Auto decision,Auto-report allowed; optional clinician review
+YELLOW,0.2,0.5,Clinician assist,Flag for review; show risk score + Grad-CAM.
+RED,0.5,1.0,Manual review,Do NOT auto-report; require specialist confirmation.

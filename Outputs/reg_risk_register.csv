@@ -1,0 +1,8 @@
+Risk_ID,Hazard,Initial_Severity(1–5),Initial_Likelihood(1–5),Initial_Risk_Level,Mitigation,Residual_Severity(1–5),Residual_Likelihood(1–5),Residual_Risk_Level
+1,False negative – glaucoma missed,5,3,Critical,Route U>0.20 to clinician; conservative threshold at high-sensitivity operating point; periodic audit.,3,2,Medium
+2,False positive – unnecessary referral,3,3,High,Tune operating threshold with clinicians; show Grad-CAM; allow override.,2,2,Medium
+3,Demographic or device bias (age/sex/ethnicity/camera),4,3,High,"Cross-dataset validation (REFUGE, PAPILA); bias analysis; add data where gaps found; monitor subgroup metrics.",3,2,Medium
+4,Poor image quality not detected,4,3,High,Automatic quality score & uncertainty gating; reject ungradable images; re-acquire image.,2,2,Medium
+5,Domain drift (new cameras / populations),4,3,High,Post-market drift monitoring on calibration set; regular re-training with new data; version control.,3,2,Medium
+6,Over-reliance on AI / automation bias,4,2,Medium,Clear UI labels: decision-support only; show uncertainty color + explanation; training for clinicians.,3,1,Low
+7,System outage or network failure,3,2,Medium,Fallback manual reading workflow; local caching; uptime monitoring.,2,1,Low

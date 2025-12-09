@@ -1,0 +1,4 @@
+Frequency,Data_Source,Metrics_Monitored,Action_Trigger
+Monthly,Calibration / ops data,"AUC, ECE, prevalence, uncertainty distribution",Alert if AUC drop > 0.03 or ECE > 0.05 compared to baseline; investigate & retrain if confirmed.
+Quarterly,"Subgroup bias (age, sex, ethnicity, camera)",AUC & sensitivity by subgroup,"If any subgroup AUC < 0.75 or sensitivity < 0.80, collect more data / adjust training."
+Annually,Full external re-validation,Repeat REFUGE/PAPILA-style evaluation or new multi-center dataset,"Regulatory re-assessment, release new model version if improved."

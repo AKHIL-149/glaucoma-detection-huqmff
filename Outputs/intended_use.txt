@@ -1,0 +1,11 @@
+
+Intended Use – H-UQ-MFF Glaucoma Screening System
+-------------------------------------------------
+The H-UQ-MFF model is intended as a clinical decision-support tool for
+screening of referable glaucoma from color fundus photographs in adults
+(>=18 years) in primary care and ophthalmology screening settings.
+
+The system is NOT a stand-alone diagnostic device. Final diagnostic and
+treatment decisions MUST remain with a qualified eye-care professional.
+High-uncertainty (U>0.50) and low-quality images must be routed for
+manual review.

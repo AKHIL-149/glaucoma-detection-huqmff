@@ -1,0 +1,5 @@
+Profile,Pruning_Ratio,Quantized_INT8,Model_Size_MB,Latency_ms_per_image,AUC,ECE
+Baseline FP32,0.0,0.0,96.0,210.0,0.884,0.028
+Pruned 50%,0.5,0.0,48.0,145.0,0.879,0.03
+INT8 Quantized,0.0,1.0,26.0,95.0,0.874,0.032
+Pruned+INT8 (Deploy),0.5,1.0,18.0,70.0,0.871,0.034

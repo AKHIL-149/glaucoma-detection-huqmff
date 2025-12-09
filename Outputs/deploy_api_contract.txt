@@ -1,0 +1,29 @@
+
+API: POST /api/v1/glaucoma-screen
+
+Input (JSON + image):
+{
+  "patient_id": "HOSP12345",
+  "study_uid": "1.2.840.113619...",
+  "image_path": "fundus_001.dcm or fundus_001.jpg",
+  "metadata": {
+    "age": 63,
+    "sex": "F",
+    "camera": "Zeiss",
+    "eye": "OD"
+  }
+}
+
+Output (JSON):
+{
+  "patient_id": "HOSP12345",
+  "study_uid": "...",
+  "risk_score": 0.82,                # probability of referable glaucoma
+  "uncertainty": 0.27,               # MC-Dropout variance / score
+  "uncertainty_band": "YELLOW",      # GREEN / YELLOW / RED
+  "decision_hint": "Clinician assist",
+  "model_profile": "Pruned+INT8 (Deploy)",
+  "gradcam_path": "gradcams/HOSP12345_OD.png",
+  "quality_score": 0.71,
+  "timestamp": "2025-11-22T08:30:00Z"
+}
