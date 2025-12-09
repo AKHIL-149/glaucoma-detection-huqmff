@@ -216,4 +216,4 @@ This project is for research and educational purposes. Not intended as a standal
 
 ## Contact
 
-For questions or collaboration opportunities, please open an issue or contact me at your.email@example.com
+For questions or collaboration opportunities, please open an issue or contact me at venkatakhil149@gmail.com
