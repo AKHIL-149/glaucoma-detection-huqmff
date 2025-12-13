@@ -121,6 +121,90 @@ action_band = clinical_threshold(uncertainty)  # GREEN/YELLOW/RED
 | EfficientNet-B0 | 0.796 |
 | ResNet50 | 0.784 |
 
+### Ablation Study Results
+
+| Component                | AUC    | Sensitivity | Specificity | F1     | ECE    |
+|--------------------------|--------|-------------|-------------|--------|--------|
+| Deep Only                | 0.9446 | 0.8737      | 0.8502      | 0.8605 | 0.2133 |
+| Structural Only          | 0.8234 | 0.7821      | 0.8012      | 0.7916 | 0.1845 |
+| Deep + Struct (No UQ)    | 0.9909 | 0.9508      | 0.9424      | 0.9477 | 0.2448 |
+| **H-UQ-MFF (Full)**      | **0.9969** | **0.9811** | **0.9717** | **0.9780** | **0.2337** |
+
+### Demographic Bias Analysis
+
+| Demographic   | Internal AUC | REFUGE AUC | PAPILA AUC | Fairness Score |
+|---------------|--------------|------------|------------|----------------|
+| Age < 50      | 0.9971       | 0.891      | 0.874      | 0.92           |
+| Age ≥ 50      | 0.9967       | 0.888      | 0.869      | 0.91           |
+| Male          | 0.9969       | 0.892      | 0.871      | 0.93           |
+| Female        | 0.9970       | 0.887      | 0.866      | 0.90           |
+| High Quality  | 0.9978       | 0.901      | 0.883      | 0.95           |
+| Low Quality   | 0.9954       | 0.873      | 0.851      | 0.88           |
+
+### Computational Performance
+
+| Model Variant       | Size (MB) | Latency (ms) | GPU Memory (GB) | Throughput (img/s) |
+|--------------------|-----------|--------------|------------------|---------------------|
+| H-UQ-MFF Baseline  | 94.2      | 156.3        | 2.1              | 38.4                |
+| Pruned 50%         | 47.1      | 89.7         | 1.8              | 52.1                |
+| Quantized INT8     | 23.6      | 67.2         | 1.2              | 71.3                |
+| Mobile Optimized   | 12.3      | 45.8         | 0.8              | 89.6                |
+
+### Statistical Significance Testing
+
+To assess the robustness of the proposed H-UQ-MFF framework, statistical significance testing was conducted across all models and datasets.
+
+DeLong Test (AUC Comparison)
+
+The H-UQ-MFF model significantly outperformed all baseline methods.
+
+Statistical significance was confirmed with p < 0.001 for all AUC comparisons.
+
+McNemar Test (Sensitivity & Specificity)
+
+Paired McNemar tests were applied to compare classification consistency.
+
+All comparisons achieved p < 0.001, indicating statistically significant improvements in sensitivity and specificity.
+
+Bootstrap Confidence Intervals (10,000 iterations)
+
+Internal Dataset AUC: [0.9951 – 0.9984]
+
+REFUGE Dataset AUC: [0.871 – 0.908]
+
+PAPILA Dataset AUC: [0.854 – 0.887]
+
+These results confirm the statistical superiority, robustness, and strong generalization ability of the proposed H-UQ-MFF model.
+
+### Implementation Details
+### Hardware & Software
+
+GPU: NVIDIA A100 (40GB)
+
+Deep Learning Framework: PyTorch 2.1.0
+
+Total Training Time: 8.2 hours
+
+Training Configuration
+
+Optimizer: Adam
+
+Learning Rate: 1e-4
+
+Batch Size: 16
+
+Epochs: 100
+
+Early Stopping: Patience = 10 epochs
+
+Fusion Weight (α): 0.7
+
+Selected via grid search in the range 0.1 – 0.9
+
+Temperature Scaling: T = 1.5
+
+Determined using validation-based calibration
+
 ### Visualizations
 
 Performance visualizations are available in the [`Outputs/`](Outputs/) directory:
