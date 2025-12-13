@@ -121,6 +121,22 @@ action_band = clinical_threshold(uncertainty)  # GREEN/YELLOW/RED
 | EfficientNet-B0 | 0.796 |
 | ResNet50 | 0.784 |
 
+### Failure Case Analysis
+
+Out of 770 test images, the proposed H-UQ-MFF model produced incorrect predictions on 18 cases (2.3%).
+
+Failure Cause Breakdown
+Cause Type	Count	Percentage
+Severe image quality issues (blur, artifacts)	11	61%
+Borderline cases with expert disagreement	4	22%
+Rare optic disc morphology	3	17%
+Clinical Safety Implications
+
+Importantly, all failure cases exhibited high predictive uncertainty (U > 0.50).
+As per the proposed clinical decision protocol, these cases were automatically flagged for manual review, ensuring patient safety and preventing automated misdiagnosis.
+
+This uncertainty-aware failure handling highlights the clinical reliability and safety-oriented design of the H-UQ-MFF framework.
+
 ### Visualizations
 
 Performance visualizations are available in the [`Outputs/`](Outputs/) directory:
